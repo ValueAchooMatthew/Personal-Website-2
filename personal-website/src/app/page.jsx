@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import Languages from "@/components/Languages"
@@ -33,8 +32,9 @@ export default function Home() {
               About me!
           </h1>
           <p className = "mt-8 text-center m-auto text-xl max-w-3xl">
-              Hello and thanks for visiting my website! My name is Matthew and I'm a second year software engineering student at McMaster University.
-              I have a great interest for all things math and computer science, and am a complete music nerd. Take a look around and see a few
+              Hello and thanks for visiting my website! My name is Matthew and I'm a second year Software Engineering student at McMaster University.
+              I have a great interest for all things math and computer science. I am particularly interested in machine learning, full stack development, and 
+              how they intersect to create better and more innovative projects. Plus, I am a complete music nerd and in my free-time run the <Link href="https://cfmu.ca/shows/83-indie-hour">McMaster College Radio</Link>. Take a look around and see a few
               things about me and my passions!
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </div>
       
-      <div className="w-full bg-[#D5DFA5] h-fit rounded-t-3xl border-[#302721] border-2  pb-12" id = "Contact">
+      <div className="w-full bg-[#D5DFA5] h-fit rounded-t-3xl border-[#302721] border-2 pb-8" id = "Contact">
         <h1 className="text-[4.5rem] font-semibold text-[#302721] text-center pt-16 ">
           Get in Touch!
         </h1>
