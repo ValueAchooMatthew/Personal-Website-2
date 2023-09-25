@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.buttonAnchors{
+
+    @apply drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)] border-[#F0EAD2] border-[2px] px-2 rounded-xl hover:text-[#302721] hover:bg-[#F0EAD2] transition-all duration-300 ease-in-out;
+}
+
