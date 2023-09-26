@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import Languages from "@/components/Languages"
 import Projects from "@/components/Projects"
@@ -9,8 +10,10 @@ export default function Home() {
   return (
     <main className="bg-[#674832] px-12">
       <div className="bg-[#674832] min-h-fit px-32 relative">
+      <Image width={100} height={100} className="absolute w-64 h-64 right-36 top-64" src={"/gifs/star.gif"} alt="star gif"></Image>
+
         <div className="text-center py-24 relative w-fit h-fit mx-auto" id = "Home">
-          <iframe className="absolute w-20 h-20 lg:-right-16 top-20 right-32" src="https://giphy.com/embed/kggH7ehwwcmKvHly5k" width="480" height="424" frameBorder="0" allowFullScreen></iframe>
+          <Image width={100} height={100} className="absolute w-20 h-20 lg:-right-16 top-20 right-32" src={"/gifs/explosion.gif"} alt="explosion/tear-drop gif"></Image>
           <h1 className="text-[5.5rem] text-[#d4b894] font-bold drop-shadow-[0_10px_4px_rgba(0,0,0,0.3)]">
             Hey, I'm Matthew!
 
@@ -18,7 +21,7 @@ export default function Home() {
 
         </div>
         <div className="my-18 text-[#d4b894] drop-shadow-[0_8px_4px_rgba(0,0,0,0.3)] relative ">
-          <iframe className ="absolute -top-20 z-50 -left-12  w-32 h-32 " src="https://giphy.com/embed/KLUBM6BUVeZFFmkH84" width="480" height="480" frameBorder="0"  allowFullScreen></iframe>
+          <Image width={100} height={100} className ="absolute -top-20 z-50 -left-12 w-32 h-32 " src={"/gifs/crown.gif"} alt="crown gif"></Image>
           <img className="w-80 inline-block mx-12 absolute -left-48" src="/img/IMG_5830-modified.png" alt=""/>
           <span className="inline-block text-2xl absolute left-48 top-12">
             (Yup, that's me!)
@@ -28,6 +31,8 @@ export default function Home() {
           </span>
         </div>
         <div className = "bg-[#d4b894] xl:p-16 p-4 xl:max-w-6xl max-w-4xl mx-auto xl:rounded-t-full rounded-t-3xl border-[#302721] border-2 border-b-0 mt-36">
+          <Image width={100} height={100} className="absolute w-48 h-48 right-16 mt-60" src={"/gifs/flowers.gif"} alt="star gif"></Image>
+
           <h1 className = "xl:mt-16 text-[5rem] font-semibold text-center text-[#302721]">
               About me!
           </h1>

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProjectCard({url, imgUrl, title, tags, search}) {
+export default function ProjectCard({url, imgUrl, title, summary, tags, search}) {
 
   // Add summary of what I did for each project
 
@@ -16,7 +16,7 @@ export default function ProjectCard({url, imgUrl, title, tags, search}) {
     if(display){
       return(<div className="min-h-fit max-w-fit bg-white rounded-t-2xl pt-2 rounded-b-md mx-0 shadow-2xl hover:scale-110 transition-all duration-150">
       <Link href={url} target='_'>
-          <div className="relative flex items-center justify-center overflow-hidden w-64 h-80 mx-6 mt-4">
+          <div className="relative flex items-center justify-center overflow-hidden w-64 h-80 mx-auto mt-4">
               <Image width={1000} height={1000} className = "h-full object-cover overflow-hidden" src={imgUrl} alt='Guess that City Website'></Image>
           </div>
       </Link>
@@ -25,6 +25,9 @@ export default function ProjectCard({url, imgUrl, title, tags, search}) {
               {title}
           </div>
       </Link>
+      <div className='pt-4 max-w-xs mx-auto max-h-fit overflow-hidden px-4'>
+        {summary}
+      </div>
       <div className='flex justify-around py-3 px-1 max-w-full'>
           {tags.map((content, id)=>{
               return(
