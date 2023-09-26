@@ -39,7 +39,7 @@ export default function Home() {
           <p className = "mt-8 text-center m-auto text-xl max-w-3xl">
               Hello and thanks for visiting my website! My name is Matthew and I'm a second year Software Engineering student at McMaster University.
               I have a great interest for all things math and computer science. I am particularly interested in machine learning, full stack development, and 
-              how they intersect to create better and more innovative projects. Plus, I am a complete music nerd and in my free-time run the <Link href="https://cfmu.ca/shows/83-indie-hour">McMaster College Radio</Link>. Take a look around and see a few
+              how they intersect to create better and more innovative projects. Plus, I am a complete music nerd and in my free-time run the <Link className="underline" href="https://cfmu.ca/shows/83-indie-hour">McMaster College Radio</Link>. Take a look around and see a few
               things about me and my passions!
           </p>
         </div>
