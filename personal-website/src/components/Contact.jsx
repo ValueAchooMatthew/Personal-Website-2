@@ -17,7 +17,7 @@ export default function Contact() {
       </div>
       
       <div className="flex text-3xl justify-center mt-6 font-semibold gap-12">
-        <Link href="/05-05-2023 Resume.pdf" target='_'>📄Résumé</Link>
+        <Link href="Resume.pdf" target='_'>📄Résumé</Link>
       </div>
 
       <span className='mt-12 flex justify-center text-xl'>Gifs courtesy of giphy.com</span>
