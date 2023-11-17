@@ -27,6 +27,9 @@ export default function Languages() {
           <img className = "w-32 hover:scale-125 duration-100" src="/img/Unofficial_JavaScript_logo_2.svg" alt="Javascript logo" />
         </div>
         <div className= "snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">
+          <img className = "w-44 hover:scale-125 duration-100" src="/img/Typescript-02.svg" alt="Typescript logo" />
+        </div>
+        <div className= "snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">
           <img className = "w-48 hover:scale-125 duration-100" src="/img/Tailwind_CSS_Logo.svg" alt="Tailwind Logo" />
         </div>
         <div className= "snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">

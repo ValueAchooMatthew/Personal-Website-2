@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProjectCard({url, imgUrl, title, summary, tags, search}) {
+export default function ProjectCard({url, imgUrl, title, summary, tags, search, in_progress}) {
 
   // Add summary of what I did for each project
 
@@ -25,7 +25,7 @@ export default function ProjectCard({url, imgUrl, title, summary, tags, search})
               {title}
           </div>
       </Link>
-      <div className='pt-4 max-w-xs mx-auto max-h-fit overflow-hidden px-4'>
+      <div className='pt-1 max-w-xs mx-auto max-h-fit overflow-hidden px-4'>
         {summary}
       </div>
       <div className='flex justify-around py-3 px-1 max-w-full'>
@@ -40,7 +40,10 @@ export default function ProjectCard({url, imgUrl, title, summary, tags, search})
               )
           })}
 
-      </div>  
+      </div>
+      {in_progress ? <div className=' bg-green-500 text-white text-center py-0.5'>
+        In progress
+      </div>:<></>}  
     </div>)}else{
       return(<></>)
     }
