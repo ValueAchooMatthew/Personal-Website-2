@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <>
       <div className='mt-16'>
-        <h2 className = "text-4xl font-semibold italic">
+        <h2 className = "text-4xl font-semibold italic bg-">
           Personal Projects
         </h2>
         <h3 className = "text-xl font-semibold italic mt-4 mb-16">
@@ -20,9 +20,14 @@ export default function Projects() {
       </div>
 
       <SearchBar setSearch = {setSearch}></SearchBar>
+      <div className="flex justify-center mb-20">
+        <ProjectCard in_progress={true} search={search} summary={"Create and test Deterministic Finite Automata (DFA's) in a Tauri-based desktop application"} url={"https://github.com/ValueAchooMatthew/inner-machinations"} imgUrl={"img/tauri.svg"} title={"Inner Machinations"} tags={[{"Name": "Rust", "Colour": "bg-amber-700"}, 
+        {"Name": "Svelte", "Colour": "bg-orange-500"}, {"Name": "Firebase Auth", "Colour": "bg-red-500"}, {"Name": "MySQL", "Colour": "bg-blue-800"}]}/>
+
+      </div>
 
       <div className="flex justify-center mb-20 gap-24">
-        <ProjectCard in_progress={true} search = {search} summary={"Visualize your top artists on spotify in the form of bubbles! (in progress)"} url={"https://github.com/cristallu84/SpotiSize"} imgUrl={"/img/Spotisize.PNG"} title={"Spotisize"} tags = {[{"Name": "React", "Colour": "bg-cyan-800"},
+        <ProjectCard in_progress={true} search = {search} summary={"Visualize your top artists on spotify in the form of bubbles!"} url={"https://github.com/cristallu84/SpotiSize"} imgUrl={"/img/Spotisize.PNG"} title={"Spotisize"} tags = {[{"Name": "React", "Colour": "bg-cyan-800"},
                                                                                                             {"Name": "NextJS", "Colour": "bg-black"},
                                                                                                             {"Name": "Tailwind", "Colour": "bg-blue-500"},
                                                                                                             {"Name": "APIs", "Colour": "bg-amber-600"}]}></ProjectCard>
@@ -38,7 +43,7 @@ export default function Projects() {
         <ProjectCard in_progress={false} search = {search} summary={"Make a unique (and delicious) sandwich based on your favourite tech stacks"} url={"https://valueachoomatthew.github.io/Stack-Sandwich/"} imgUrl={"/img/My Stackwich.PNG"} title={"My Stackwich"} tags = {[{"Name": "JavaScript", "Colour": "bg-red-800"},
                                                                                                             {"Name": "Tailwind", "Colour": "bg-blue-500"}]}></ProjectCard>
 
-        <ProjectCard in_progress={false} search = {search} summary={"Bringing AI and medicine together to create an algorithm to detect Alzheimer's (in progress)"} url={"https://github.com/ValueAchooMatthew/AI-For-Alzheimers"} imgUrl={"/img/AI-for-Alzheimer's.PNG"} title={"AI for Alzheimer's"} tags = {[{"Name": "Python", "Colour": "bg-green-800"},
+        <ProjectCard in_progress={false} search = {search} summary={"Bringing AI and medicine together to create an algorithm to detect Alzheimer's"} url={"https://github.com/ValueAchooMatthew/AI-For-Alzheimers"} imgUrl={"/img/AI-for-Alzheimer's.PNG"} title={"AI for Alzheimer's"} tags = {[{"Name": "Python", "Colour": "bg-green-800"},
                                                                                                             {"Name": "PyTorch", "Colour": "bg-orange-600"}]}></ProjectCard>
 
       </div>

@@ -10,7 +10,10 @@ export default function Languages() {
         </span>
       </div>
       {/* Maybe try making it without scroll bar */}
-      <div className = "max-w-5xl mt-12 h-52 bg-gray-100 rounded-3xl self-center mx-auto pb-8 snap-x flex snap-mandatory overflow-x-scroll overflow-y-hidden justify-start pt-10 gap-20">
+      <div className = " max-w-5xl mt-12 h-52 bg-gray-100 rounded-t-3xl rounded-b-md self-center mx-auto pb-8 snap-x flex snap-mandatory overflow-x-scroll overflow-y-hidden justify-start pt-10 gap-20">
+        <div className= "snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">
+          <img className = "w-[7.5rem] hover:scale-125 duration-100" src="/img/Rust.svg" alt="Rust Logo" />
+        </div>
         <div className= "snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">
           <img className = "w-32 hover:scale-125 duration-100" src="/img/React-icon.svg" alt="React Logo" />
         </div>
@@ -41,6 +44,7 @@ export default function Languages() {
         <div className= " snap-center self-center flex justify-center shrink-0 first:pl-20 last:pr-20">
           <img className = "w-24 hover:scale-125 duration-100" src="/img/CSS3_logo_and_wordmark.svg" alt="Css3 Logo" />
         </div>
+
       </div>
 
     </>
