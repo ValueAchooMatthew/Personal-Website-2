@@ -8,19 +8,19 @@
 }
 
 /* width */
-::-webkit-scrollbar {
+.flex::-webkit-scrollbar {
     height: 12px;
   }
   
 /* Track */
-::-webkit-scrollbar-track {
+.flex::-webkit-scrollbar-track{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+.flex::-webkit-scrollbar-thumb {
   background: rgb(92, 90, 90);
   border-radius: 5px;
 }
