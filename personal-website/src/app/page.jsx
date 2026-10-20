@@ -24,7 +24,7 @@ export default function Home() {
         {/* Below xl the photo and caption sit side by side in the page flow; from xl up they hang to the left of the About arch */}
         <div className="flex items-center justify-center gap-3 sm:gap-6 text-[#d4b894] drop-shadow-[0_8px_4px_rgba(0,0,0,0.3)] relative xl:block">
           <div className="relative shrink-0 w-36 sm:w-56 xl:w-80 xl:absolute xl:-left-36">
-            <Image width={100} height={100} className ="absolute -top-[25%] left-[30%] z-50 w-[40%] h-auto" src={"/gifs/crown.gif"} alt="crown gif"></Image>
+            <Image width={100} height={100} className ="absolute top-[-25%] left-[30%] z-50 w-[40%] h-auto" src={"/gifs/crown.gif"} alt="crown gif"></Image>
             <img className="w-full" src="/img/IMG_5830-modified.png" alt="Photo of Matthew"/>
           </div>
           <span className="inline-block text-lg sm:text-2xl xl:absolute xl:left-48 xl:top-12">

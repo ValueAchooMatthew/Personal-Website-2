@@ -2,11 +2,11 @@ import React from 'react'
 
 // Each logo's width is tuned by eye; the second size applies from the sm breakpoint up
 const logos = [
-  { src: '/img/Rust.svg', alt: 'Rust logo', w: 'w-20 sm:w-[7.5rem]' },
+  { src: '/img/Rust.svg', alt: 'Rust logo', w: 'w-20 sm:w-30' },
   { src: '/img/React-icon.svg', alt: 'React logo', w: 'w-20 sm:w-32' },
-  { src: '/img/python.svg', alt: 'Python logo', w: 'w-[4.5rem] sm:w-28', pad: 'pt-5 sm:pt-8' },
+  { src: '/img/python.svg', alt: 'Python logo', w: 'w-18 sm:w-28', pad: 'pt-5 sm:pt-8' },
   { src: '/img/Java_Logo.svg', alt: 'Java logo', w: 'w-20 sm:w-32' },
-  { src: '/img/Cpp_Logo.svg', alt: 'C++ logo', w: 'w-[4.5rem] sm:w-28' },
+  { src: '/img/Cpp_Logo.svg', alt: 'C++ logo', w: 'w-18 sm:w-28' },
   { src: '/img/C_Programming_Language.svg', alt: 'C logo', w: 'w-20 sm:w-32' },
   { src: '/img/Unofficial_JavaScript_logo_2.svg', alt: 'JavaScript logo', w: 'w-20 sm:w-32' },
   { src: '/img/Typescript-02.svg', alt: 'TypeScript logo', w: 'w-28 sm:w-44' },
@@ -15,7 +15,7 @@ const logos = [
   { src: '/img/Docker_Logo.svg', alt: 'Docker logo', w: 'w-40 sm:w-56' },
   { src: '/img/Tailwind_CSS_Logo.svg.png', alt: 'Tailwind logo', w: 'w-32 sm:w-48' },
   { src: '/img/SQL.svg', alt: 'SQL logo', w: 'w-24 sm:w-36' },
-  { src: '/img/HTML5_logo_and_wordmark.svg', alt: 'HTML5 logo', w: 'w-[5.25rem] sm:w-[8.4rem]' },
+  { src: '/img/HTML5_logo_and_wordmark.svg', alt: 'HTML5 logo', w: 'w-21 sm:w-[8.4rem]' },
   { src: '/img/CSS3_logo_and_wordmark.svg', alt: 'CSS3 logo', w: 'w-16 sm:w-24' },
 ]
 
