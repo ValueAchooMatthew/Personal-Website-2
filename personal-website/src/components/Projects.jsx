@@ -24,7 +24,7 @@ export default function Projects() {
 
       <SearchBar setSearch = {setSearch}></SearchBar>
       <div className={row}>
-        <ProjectCard in_progress={false} search={search} summary={"Check machine-generated first-order logic proofs step by step. Placed 5th at ProoVer 2026, catching 40 of the 47 deliberately broken proofs!"} url={"https://github.com/ValueAchooMatthew/ATP-Research-Project"} imgUrl={"/img/ProofGuard.svg"} title={"ProofGuard"} tags={[{"Name": "Python", "Colour": "bg-green-800"},
+        <ProjectCard in_progress={false} search={search} summary={"Check machine-generated first-order logic proofs step by step. Placed 5th at ProoVer 2026, catching 40 of the 47 deliberately broken proofs!"} url={"https://github.com/ValueAchooMatthew/ProofGuard"} imgUrl={"/img/ProofGuard.svg"} title={"ProofGuard"} tags={[{"Name": "Python", "Colour": "bg-green-800"},
         {"Name": "Formal Methods", "Colour": "bg-[#674832]"}, {"Name": "Docker", "Colour": "bg-blue-500"}]}/>
         <ProjectCard in_progress={false} search={search} summary={"Create and test DFAs, NFAs, and regular expressions in a Tauri-based desktop application"} url={"https://github.com/ValueAchooMatthew/inner-machinations"} imgUrl={"/img/Inner-Machinations.png"} title={"Inner Machinations"} tags={[{"Name": "Rust", "Colour": "bg-amber-700"},
         {"Name": "Svelte", "Colour": "bg-orange-500"}, {"Name": "Tauri", "Colour": "bg-cyan-800"}, {"Name": "SQLite", "Colour": "bg-blue-800"}]}/>

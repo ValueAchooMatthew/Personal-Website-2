@@ -7,7 +7,7 @@ const roles = [
     org: 'McMaster University',
     dates: 'May 2026 - Present',
     tag: { Name: 'Research', Colour: 'bg-green-800' },
-    summary: <>Supervised research on automated theorem proving with Dr. Alicia Marinache. I built <a className='underline' href='https://github.com/ValueAchooMatthew/ATP-Research-Project' target='_blank' rel='noopener noreferrer'>ProofGuard</a>, a checker for first-order logic proofs, which placed 5th by performance at ProoVer 2026 (held at FLoC 2026 in Lisbon). It classified 70 of the 91 competition proofs correctly, including 40 of the 47 deliberately broken ones, and its system description is published in the competition proceedings.</>,
+    summary: <>Supervised research on automated theorem proving with Dr. Alicia Marinache. I built <a className='underline' href='https://github.com/ValueAchooMatthew/ProofGuard' target='_blank' rel='noopener noreferrer'>ProofGuard</a>, a checker for first-order logic proofs, which placed 5th by performance at ProoVer 2026 (held at FLoC 2026 in Lisbon). It classified 70 of the 91 competition proofs correctly, including 40 of the 47 deliberately broken ones, and its system description is published in the competition proceedings.</>,
   },
   {
     title: 'Software Engineer Co-op',
