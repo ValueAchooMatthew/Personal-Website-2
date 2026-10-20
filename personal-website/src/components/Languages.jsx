@@ -26,10 +26,14 @@ export default function Languages() {
   // Click and drag scrolls the row with a mouse; touch screens already swipe it natively
   const scroller = useRef(null)
   const drag = useRef(null)
+  const glide = useRef(null)
 
   const startDrag = (event) => {
     if (event.pointerType !== 'mouse' || event.button !== 0) return
     const el = scroller.current
+    // Grabbing the row mid-glide stops it where it is
+    if (glide.current) cancelAnimationFrame(glide.current)
+    glide.current = null
     drag.current = { x: event.clientX, left: el.scrollLeft, samples: [{ x: event.clientX, t: event.timeStamp }] }
     el.setPointerCapture(event.pointerId)
     // Snapping fights the drag, so it stays off until the row has settled after release
@@ -62,27 +66,43 @@ export default function Languages() {
     return Math.max(0, Math.min(best, el.scrollWidth - el.clientWidth))
   }
 
-  const endDrag = () => {
+  const endDrag = (event) => {
     const current = drag.current
     if (!current) return
     drag.current = null
     const el = scroller.current
 
-    // Glide on in the direction of the drag (px per ms, capped), then ease onto the nearest logo
+    // Release speed in px per ms from the last few pointer positions. Holding still before
+    // letting go means no fling.
     const first = current.samples[0]
     const last = current.samples[current.samples.length - 1]
     const elapsed = last.t - first.t
-    const velocity = elapsed > 0 ? Math.max(-3, Math.min(3, (first.x - last.x) / elapsed)) : 0
-    el.scrollTo({ left: nearestLogo(el, el.scrollLeft + velocity * 250), behavior: 'smooth' })
+    const held = event && event.timeStamp - last.t > 80
+    const velocity = elapsed > 0 && !held ? Math.max(-4, Math.min(4, (first.x - last.x) / elapsed)) : 0
 
-    const restoreSnap = () => {
-      if (drag.current) return
-      el.style.scrollSnapType = ''
-      el.style.scrollBehavior = ''
+    // Coast as far as the release speed carries it (as if slowing under steady friction), and
+    // end exactly on the nearest logo
+    const start = el.scrollLeft
+    const target = nearestLogo(el, start + velocity * 450)
+    const distance = target - start
+    // An ease-out cubic starts at 3 * distance / duration, so this duration makes the glide start
+    // at the same speed the mouse was moving: no jolt at the moment of release
+    const sameDirection = distance * velocity > 0
+    const duration = sameDirection ? Math.max(600, Math.min(1800, (3 * Math.abs(distance)) / Math.abs(velocity))) : 550
+    const began = performance.now()
+
+    const step = (now) => {
+      const t = Math.min(1, (now - began) / duration)
+      el.scrollLeft = start + distance * (1 - Math.pow(1 - t, 3))
+      if (t < 1) {
+        glide.current = requestAnimationFrame(step)
+      } else {
+        glide.current = null
+        el.style.scrollSnapType = ''
+        el.style.scrollBehavior = ''
+      }
     }
-    el.addEventListener('scrollend', restoreSnap, { once: true })
-    // Browsers without the scrollend event
-    setTimeout(restoreSnap, 900)
+    glide.current = requestAnimationFrame(step)
   }
 
   return (
