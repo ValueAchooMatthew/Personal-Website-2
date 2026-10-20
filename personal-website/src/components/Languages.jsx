@@ -29,21 +29,60 @@ export default function Languages() {
 
   const startDrag = (event) => {
     if (event.pointerType !== 'mouse' || event.button !== 0) return
-    drag.current = { x: event.clientX, left: scroller.current.scrollLeft }
-    scroller.current.setPointerCapture(event.pointerId)
-    // Snapping fights the drag, so it is off until the mouse is released (then it snaps to the nearest logo)
-    scroller.current.style.scrollSnapType = 'none'
+    const el = scroller.current
+    drag.current = { x: event.clientX, left: el.scrollLeft, samples: [{ x: event.clientX, t: event.timeStamp }] }
+    el.setPointerCapture(event.pointerId)
+    // Snapping fights the drag, so it stays off until the row has settled after release
+    el.style.scrollSnapType = 'none'
+    el.style.scrollBehavior = 'auto'
   }
 
   const moveDrag = (event) => {
-    if (!drag.current) return
-    scroller.current.scrollLeft = drag.current.left - (event.clientX - drag.current.x)
+    const current = drag.current
+    if (!current) return
+    scroller.current.scrollLeft = current.left - (event.clientX - current.x)
+    // Keep the last few pointer positions to measure the release speed
+    current.samples.push({ x: event.clientX, t: event.timeStamp })
+    if (current.samples.length > 5) current.samples.shift()
+  }
+
+  // Scroll position that centres the logo nearest to `left`, matching the CSS snap-center points
+  const nearestLogo = (el, left) => {
+    const box = el.getBoundingClientRect()
+    let best = left
+    let bestDistance = Infinity
+    for (const child of el.children) {
+      const rect = child.getBoundingClientRect()
+      const centred = rect.left - box.left + el.scrollLeft + rect.width / 2 - el.clientWidth / 2
+      if (Math.abs(centred - left) < bestDistance) {
+        best = centred
+        bestDistance = Math.abs(centred - left)
+      }
+    }
+    return Math.max(0, Math.min(best, el.scrollWidth - el.clientWidth))
   }
 
   const endDrag = () => {
-    if (!drag.current) return
+    const current = drag.current
+    if (!current) return
     drag.current = null
-    scroller.current.style.scrollSnapType = ''
+    const el = scroller.current
+
+    // Glide on in the direction of the drag (px per ms, capped), then ease onto the nearest logo
+    const first = current.samples[0]
+    const last = current.samples[current.samples.length - 1]
+    const elapsed = last.t - first.t
+    const velocity = elapsed > 0 ? Math.max(-3, Math.min(3, (first.x - last.x) / elapsed)) : 0
+    el.scrollTo({ left: nearestLogo(el, el.scrollLeft + velocity * 250), behavior: 'smooth' })
+
+    const restoreSnap = () => {
+      if (drag.current) return
+      el.style.scrollSnapType = ''
+      el.style.scrollBehavior = ''
+    }
+    el.addEventListener('scrollend', restoreSnap, { once: true })
+    // Browsers without the scrollend event
+    setTimeout(restoreSnap, 900)
   }
 
   return (

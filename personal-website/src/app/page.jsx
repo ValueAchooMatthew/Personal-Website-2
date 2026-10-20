@@ -43,7 +43,7 @@ export default function Home() {
               Hello and thanks for visiting my website! My name is Matthew and I'm a Software Engineering student at McMaster University, where I'm also doing a minor in Mathematics.
               I have a great interest in all things math and computer science. I am particularly interested in mathematical analysis, formal methods, software engineering, and
               how they intersect to create better and more innovative projects. Right now I'm a Software Engineer Co-op at AMD, and alongside that I do research on automated theorem proving at McMaster.
-              Plus, I am a complete music nerd. Take a look around and see a few
+              Plus, I am a complete music nerd and in my free-time run the McMaster College Radio. Take a look around and see a few
               things about me and my passions!
           </p>
         </div>

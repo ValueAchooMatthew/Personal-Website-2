@@ -10,7 +10,7 @@ const roles = [
     bullets: [
       'Automated theorem proving research, supervised by Dr. Alicia Marinache',
       <>Built <a className='underline' href='https://github.com/ValueAchooMatthew/ProofGuard' target='_blank' rel='noopener noreferrer'>ProofGuard</a>, a checker for first-order logic proofs</>,
-      'Placed 5th at ProoVer 2026, catching 40 of 47 broken proofs',
+      <>Placed 5th at <a className='underline' href='https://tptp.org/CASC/J13/WWWFiles/Results.html#PRVProblems' target='_blank' rel='noopener noreferrer'>ProoVer 2026</a>, catching 40 of 47 broken proofs</>,
       'System description published in the competition proceedings',
     ],
   },

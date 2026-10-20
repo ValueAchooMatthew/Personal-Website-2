@@ -24,7 +24,7 @@ export default function Projects() {
 
       <SearchBar setSearch = {setSearch}></SearchBar>
       <div className={row}>
-        <ProjectCard in_progress={false} search={search} summary={["Checks machine-generated logic proofs step by step", "Placed 5th at ProoVer 2026!"]} url={"https://github.com/ValueAchooMatthew/ProofGuard"} imgUrl={"/img/ProofGuard.svg"} title={"ProofGuard"} tags={[{"Name": "Python", "Colour": "bg-green-800"},
+        <ProjectCard in_progress={false} search={search} summary={["Checks machine-generated logic proofs step by step", <>Placed 5th at <a className="underline" href="https://tptp.org/CASC/J13/WWWFiles/Results.html#PRVProblems" target="_blank" rel="noopener noreferrer">ProoVer 2026</a>!</>]} url={"https://github.com/ValueAchooMatthew/ProofGuard"} imgUrl={"/img/ProofGuard.svg"} title={"ProofGuard"} tags={[{"Name": "Python", "Colour": "bg-green-800"},
         {"Name": "Formal Methods", "Colour": "bg-[#674832]"}, {"Name": "Docker", "Colour": "bg-blue-500"}]}/>
         <ProjectCard in_progress={false} search={search} summary={["Create and test DFAs, NFAs, and regular expressions", "Tauri-based desktop app"]} url={"https://github.com/ValueAchooMatthew/inner-machinations"} imgUrl={"/img/Inner-Machinations.png"} title={"Inner Machinations"} tags={[{"Name": "Rust", "Colour": "bg-amber-700"},
         {"Name": "Svelte", "Colour": "bg-orange-500"}, {"Name": "Tauri", "Colour": "bg-cyan-800"}, {"Name": "SQLite", "Colour": "bg-blue-800"}]}/>
