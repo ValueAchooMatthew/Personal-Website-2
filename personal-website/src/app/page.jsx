@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Image from "next/image"
 
 import Experience from "@/components/Experience"
@@ -38,20 +37,20 @@ export default function Home() {
           <Image width={100} height={100} className="hidden 2xl:block absolute w-48 h-48 right-16 mt-60" src={"/gifs/flowers.gif"} alt="star gif"></Image>
 
           <h1 className = "xl:mt-16 text-5xl sm:text-6xl lg:text-[5rem] font-semibold text-center text-[#302721]">
-              About me!
+              About Me!
           </h1>
           <p className = "mt-6 sm:mt-8 text-center m-auto text-base sm:text-lg lg:text-xl max-w-3xl">
               Hello and thanks for visiting my website! My name is Matthew and I'm a Software Engineering student at McMaster University, where I'm also doing a minor in Mathematics.
               I have a great interest in all things math and computer science. I am particularly interested in mathematical analysis, formal methods, software engineering, and
               how they intersect to create better and more innovative projects. Right now I'm a Software Engineer Co-op at AMD, and alongside that I do research on automated theorem proving at McMaster.
-              Plus, I am a complete music nerd and in my free-time run the <Link className="underline" href="https://cfmu.ca/show/indie-hour/" target="_blank" rel="noopener noreferrer">McMaster College Radio</Link>. Take a look around and see a few
+              Plus, I am a complete music nerd. Take a look around and see a few
               things about me and my passions!
           </p>
         </div>
         <Experience></Experience>
         <div className="bg-[#B3C581] text-center pb-16 sm:pb-24 pt-14 px-3 sm:px-6 rounded-t-3xl border-[#302721] border-2 border-b-0 scroll-mt-16" id = "Skills">
           <h2 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-semibold text-[#302721]">
-            My skills
+            My Skills
           </h2>
           <p className="text-xl sm:text-2xl font-semibold text-[#302721]">(at a glance :P)</p>
           <Languages></Languages>

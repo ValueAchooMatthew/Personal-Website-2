@@ -31,9 +31,9 @@ export default function ProjectCard({url, imgUrl, imgClass = "h-full object-cove
               {title}
           </div>
       </MaybeLink>
-      <div className='pt-1 max-w-xs mx-auto max-h-fit overflow-hidden px-4'>
-        {summary}
-      </div>
+      <ul className='pt-1 max-w-xs mx-auto max-h-fit overflow-hidden px-4 text-left list-disc pl-9 space-y-1'>
+        {summary.map((bullet, index) => <li key={index}>{bullet}</li>)}
+      </ul>
       <div className='flex flex-wrap justify-around gap-y-1 py-3 px-1 max-w-full'>
           {tags.map((content, id)=>{
               return(

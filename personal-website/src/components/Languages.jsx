@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useRef } from 'react'
 
 // Each logo's width is tuned by eye; the second size applies from the sm breakpoint up
 const logos = [
@@ -20,6 +22,30 @@ const logos = [
 ]
 
 export default function Languages() {
+
+  // Click and drag scrolls the row with a mouse; touch screens already swipe it natively
+  const scroller = useRef(null)
+  const drag = useRef(null)
+
+  const startDrag = (event) => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return
+    drag.current = { x: event.clientX, left: scroller.current.scrollLeft }
+    scroller.current.setPointerCapture(event.pointerId)
+    // Snapping fights the drag, so it is off until the mouse is released (then it snaps to the nearest logo)
+    scroller.current.style.scrollSnapType = 'none'
+  }
+
+  const moveDrag = (event) => {
+    if (!drag.current) return
+    scroller.current.scrollLeft = drag.current.left - (event.clientX - drag.current.x)
+  }
+
+  const endDrag = () => {
+    if (!drag.current) return
+    drag.current = null
+    scroller.current.style.scrollSnapType = ''
+  }
+
   return (
 
     <>
@@ -29,10 +55,12 @@ export default function Languages() {
         </span>
       </div>
       {/* Maybe try making it without scroll bar */}
-      <div className = " max-w-5xl mt-8 sm:mt-12 h-36 sm:h-52 bg-gray-100 rounded-t-3xl rounded-b-md self-center mx-auto pb-6 sm:pb-8 snap-x flex snap-mandatory overflow-x-scroll overflow-y-hidden justify-start pt-6 sm:pt-10 gap-10 sm:gap-20">
+      <div ref={scroller} onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}
+        className = " max-w-5xl mt-8 sm:mt-12 h-36 sm:h-52 bg-gray-100 rounded-t-3xl rounded-b-md self-center mx-auto pb-6 sm:pb-8 snap-x flex snap-mandatory overflow-x-scroll overflow-y-hidden justify-start pt-6 sm:pt-10 gap-10 sm:gap-20 cursor-grab active:cursor-grabbing select-none">
         {logos.map(({ src, alt, w, pad }) => (
           <div className= {`snap-center self-center flex justify-center shrink-0 first:pl-10 sm:first:pl-20 last:pr-10 sm:last:pr-20 ${pad ?? ''}`} key={src}>
-            <img className = {`${w} hover:scale-125 duration-100`} src={src} alt={alt} />
+            {/* draggable={false} stops the browser pulling out a ghost copy of the logo mid-drag */}
+            <img className = {`${w} hover:scale-125 duration-100`} src={src} alt={alt} draggable={false} />
           </div>
         ))}
 
