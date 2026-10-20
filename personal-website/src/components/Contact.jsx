@@ -6,21 +6,21 @@ export default function Contact() {
   return (
 
     <>
-      <span className="flex text-3xl justify-center mt-12 font-semibold ">
-        Email: matthewtamerfarah@gmail.com
+      <span className="flex flex-wrap text-lg sm:text-2xl lg:text-3xl justify-center gap-x-2 mt-8 sm:mt-12 font-semibold text-center">
+        Email: <a className="break-all hover:underline" href="mailto:matthewtamerfarah@gmail.com">matthewtamerfarah@gmail.com</a>
       </span>
 
-      <div className="flex text-3xl justify-center mt-6 font-semibold gap-12">
-        <Link className='flex items-center' href="https://github.com/ValueAchooMatthew" target='_'><Image className='w-6 h-6 inline-block rounded-md ' width={100} height={100} src={"/img/Github.png"} alt='github'></Image>Github</Link>
-        <Link className='flex items-center' href="https://www.linkedin.com/in/matthewtfarah/" target='_'><Image className='w-6 h-6 inline-block rounded-md ' width={100} height={100} src={"/img/LinkedIn.png"} alt='linkedin'></Image>LinkedIn</Link>
+      <div className="flex text-xl sm:text-2xl lg:text-3xl justify-center mt-6 font-semibold gap-8 sm:gap-12">
+        <Link className='flex items-center gap-1' href="https://github.com/ValueAchooMatthew" target='_blank' rel='noopener noreferrer'><Image className='w-6 h-6 inline-block rounded-md ' width={100} height={100} src={"/img/Github.png"} alt='github'></Image>Github</Link>
+        <Link className='flex items-center gap-1' href="https://www.linkedin.com/in/matthewtfarah/" target='_blank' rel='noopener noreferrer'><Image className='w-6 h-6 inline-block rounded-md ' width={100} height={100} src={"/img/LinkedIn.png"} alt='linkedin'></Image>LinkedIn</Link>
 
       </div>
-      
-      <div className="flex text-3xl justify-center mt-6 font-semibold gap-12">
-        <Link href="Resume.pdf" target='_'>📄Résumé</Link>
+
+      <div className="flex text-xl sm:text-2xl lg:text-3xl justify-center mt-6 font-semibold gap-12">
+        <a href="/resume" target='_blank' rel='noopener noreferrer'>📄Résumé</a>
       </div>
 
-      <span className='mt-12 flex justify-center text-xl'>Gifs courtesy of giphy.com</span>
+      <span className='mt-12 flex justify-center text-base sm:text-xl'>Gifs courtesy of giphy.com</span>
     </>
 
   )

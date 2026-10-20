@@ -2,7 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export default function ProjectCard({url, imgUrl, title, summary, tags, search, in_progress}) {
+// Projects without a public link (url = null) render the same card, just not clickable
+function MaybeLink({ url, children }) {
+  if (!url) return <>{children}</>
+  return <Link href={url} target='_blank' rel='noopener noreferrer'>{children}</Link>
+}
+
+export default function ProjectCard({url, imgUrl, imgClass = "h-full object-cover", title, summary, tags, search, in_progress}) {
 
   // Add summary of what I did for each project
 
@@ -12,23 +18,23 @@ export default function ProjectCard({url, imgUrl, title, summary, tags, search, 
       if(ls[i].Name.toLowerCase().includes(query.trim().toLowerCase())){
         display = true
       }
-    
+
     if(display){
-      return(<div className="min-h-fit max-w-fit bg-white rounded-t-2xl pt-2 rounded-b-md mx-0 shadow-2xl hover:scale-110 transition-all duration-150">
-      <Link href={url} target='_'>
-          <div className="relative flex items-center justify-center overflow-hidden w-64 h-80 mx-auto mt-4">
-              <Image width={1000} height={1000} className = "h-full object-cover overflow-hidden" src={imgUrl} alt='Guess that City Website'></Image>
+      return(<div className="min-h-fit w-72 lg:w-80 max-w-full bg-white rounded-t-2xl pt-2 rounded-b-md mx-0 shadow-2xl hover:scale-110 transition-all duration-150">
+      <MaybeLink url={url}>
+          <div className="relative flex items-center justify-center overflow-hidden w-64 max-w-[85%] h-80 mx-auto mt-4">
+              <Image width={1000} height={1000} className = {`${imgClass} overflow-hidden`} src={imgUrl} alt={`${title} preview`}></Image>
           </div>
-      </Link>
-      <Link href={url}>
+      </MaybeLink>
+      <MaybeLink url={url}>
           <div className='text-center pt-4 max-w-xs mx-auto max-h-fit overflow-hidden text-2xl font-semibold' >
               {title}
           </div>
-      </Link>
+      </MaybeLink>
       <div className='pt-1 max-w-xs mx-auto max-h-fit overflow-hidden px-4'>
         {summary}
       </div>
-      <div className='flex justify-around py-3 px-1 max-w-full'>
+      <div className='flex flex-wrap justify-around gap-y-1 py-3 px-1 max-w-full'>
           {tags.map((content, id)=>{
               return(
                 <div className={`${content.Colour} rounded-full px-2 py-1 mx-0.5 max-w-full h-fit`} key = {id}>
@@ -43,7 +49,7 @@ export default function ProjectCard({url, imgUrl, title, summary, tags, search, 
       </div>
       {in_progress ? <div className=' bg-green-500 text-white text-center py-0.5'>
         In progress
-      </div>:<></>}  
+      </div>:<></>}
     </div>)}else{
       return(<></>)
     }
@@ -56,6 +62,6 @@ export default function ProjectCard({url, imgUrl, title, summary, tags, search, 
       {sorter(tags, search)}
 
     </>
-      
+
   )
 }
