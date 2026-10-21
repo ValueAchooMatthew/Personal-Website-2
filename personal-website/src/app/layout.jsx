@@ -12,10 +12,14 @@ export const metadata = {
   metadataBase: new URL('https://www.valueachoomatthew.me'),
   title: "Matthew Farah's Personal Website",
   description,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "Matthew Farah's Personal Website",
     description,
     url: '/',
+    siteName: 'Matthew Farah',
     type: 'website',
   },
   twitter: {
@@ -23,10 +27,19 @@ export const metadata = {
   },
 }
 
+// Google takes the site name shown above search results from this, instead of the hosting domain
+const siteData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Matthew Farah',
+  url: 'https://www.valueachoomatthew.me/',
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='scroll-smooth'>
       <body className={inter.className}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteData) }} />
       <Navbar></Navbar>
       {children}
       </body>
